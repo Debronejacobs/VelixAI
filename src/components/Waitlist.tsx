@@ -23,10 +23,15 @@ export default function Waitlist() {
       });
 
       if (error) {
-        if ((error as any).status === 429) {
-          setErrorMessage((error as any).message || 'Rate limit reached.');
+        // InsForgeError usually wraps the payload or status in different properties depending on version
+        const errObj = error as any;
+        const errStatus = errObj.status || errObj.context?.status;
+        const errMsg = errObj.message || errObj.context?.message || 'Rate limit reached.';
+        
+        if (errStatus === 429 || errMsg.includes('already registered') || errMsg.includes('Too Many Requests')) {
+          setErrorMessage('This device is already registered.');
         } else {
-          setErrorMessage('Error connecting to system.');
+          setErrorMessage(errMsg || 'Error connecting to system.');
         }
         throw error;
       }

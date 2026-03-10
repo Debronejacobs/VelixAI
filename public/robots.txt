@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://velixai.cloud/sitemap-index.xml

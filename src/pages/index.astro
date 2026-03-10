@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import FixedBackground from '../components/FixedBackground';
+import Hero from '../components/Hero';
+import WhatIsVelix from '../components/WhatIsVelix';
+import Capabilities from '../components/Capabilities';
+import TimelineSection from '../components/TimelineSection';
+import Waitlist from '../components/Waitlist';
+import '../styles/global.css';
+---
+
+<Layout title="Velix AI | Browser Native Agent">
+	
+	{/* FIXED BACKGROUND LAYER */}
+	<FixedBackground client:only="react" />
+
+	{/* SCROLLING CONTENT LAYER */}
+	<div className="relative z-10 w-full text-white">
+		<Header client:load />
+		
+		<Hero client:load />
+		<WhatIsVelix client:visible />
+		<Capabilities client:visible />
+		<TimelineSection client:visible />
+		<Waitlist client:visible />
+	</div>
+</Layout>

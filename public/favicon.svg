@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect width="100" height="100" rx="24" fill="#040404" />
+  <path d="M25 30 L50 75 L75 30" stroke="url(#glow)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+  <defs>
+    <linearGradient id="glow" x1="25" y1="30" x2="75" y2="75" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF5A00" />
+      <stop offset="1" stop-color="#FFA500" />
+    </linearGradient>
+  </defs>
+</svg>

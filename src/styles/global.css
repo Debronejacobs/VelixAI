@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --color-canvas: #000000;
+  --color-lava-start: #ff6a00;
+  --color-lava-end: #ffa500;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A1A1AA;
+  
+  --font-primary: 'Inter', -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-canvas);
+  color: var(--color-text-primary);
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 90, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 50% 100%, rgba(255, 165, 0, 0.05) 0%, transparent 50%);
+  overflow-x: hidden;
+}
+
+/* Glass Obsidian effects */
+.obsidian-glass {
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.obsidian-glass-hover:hover {
+  border: 1px solid rgba(255, 90, 0, 0.3);
+  box-shadow: 0 0 40px rgba(255, 90, 0, 0.15), 0 4px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-lava-glow {
+  background: linear-gradient(135deg, var(--color-lava-start) 0%, var(--color-lava-end) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255, 90, 0, 0.3);
+}
+
+.btn-lava {
+  background: rgba(255, 90, 0, 0.1);
+  border: 1px solid rgba(255, 90, 0, 0.5);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-lava::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, var(--color-lava-start) 0%, var(--color-lava-end) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.btn-lava:hover::before {
+  opacity: 1;
+}
+
+.btn-lava:hover {
+  box-shadow: 0 0 40px rgba(255, 90, 0, 0.4);
+  color: #000;
+}
+
+.btn-lava span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}

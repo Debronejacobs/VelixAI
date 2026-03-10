@@ -116,9 +116,14 @@ export default function Hero() {
               </form>
             )}
             {status === 'error' && (
-              <p className="text-red-500 font-mono text-xs mt-2 uppercase tracking-tight">
-                {errorMessage || 'Error initializing connection'}
-              </p>
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-4 flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/20 rounded-lg text-red-500 text-sm font-medium"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                {errorMessage || 'Connection failed. Please try again later.'}
+              </motion.div>
             )}
           </motion.div>
           

@@ -51,8 +51,22 @@ export default function Waitlist() {
   };
 
   return (
-    <section className="relative w-full h-[80vh] flex flex-col items-center justify-center bg-transparent overflow-hidden z-10">
+    <section className="relative w-full h-[80vh] flex flex-col items-center justify-center bg-black overflow-hidden z-10">
       
+      {/* Background Face Image */}
+      <div 
+        className="absolute inset-0 z-0 opacity-60"
+        style={{ 
+          maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)'
+        }}
+      >
+        <div 
+          className="absolute inset-0 bg-[url('/digital-worker.png')] bg-cover bg-center bg-no-repeat w-full h-full mix-blend-screen"
+          style={{ filter: 'contrast(1.2)' }}
+        />
+      </div>
+
       <motion.div 
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -71,29 +85,29 @@ export default function Waitlist() {
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-8 p-6 border border-[#ff6a00]/30 bg-[#ff6a00]/10 rounded-lg backdrop-blur-md inline-block"
+            className="mt-8 p-6 border border-zinc-200/30 bg-zinc-200/10 rounded-lg backdrop-blur-md inline-block"
           >
-            <p className="text-[#ff6a00] font-mono font-bold tracking-widest text-lg">SYSTEM_INITIALIZED</p>
+            <p className="text-zinc-200 font-mono font-bold tracking-widest text-lg">SYSTEM_INITIALIZED</p>
             <p className="text-zinc-300 mt-2 text-sm">We've added your email to the queue. Stand by.</p>
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="mt-8 flex flex-col md:flex-row w-full gap-6 items-end">
             <div className="flex-1 w-full relative">
-              <span className="absolute left-0 bottom-3 text-[#ff6a00] font-mono font-bold text-lg">{'>_'}</span>
+              <span className="absolute left-0 bottom-3 text-zinc-200 font-mono font-bold text-lg">{'>_'}</span>
               <input 
                 type="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 disabled={status === 'loading'}
                 placeholder="Enter email to initialize Velix_" 
-                className="w-full bg-transparent border-0 border-b-2 border-zinc-700 pl-8 pr-4 py-3 text-white placeholder-zinc-500 font-mono focus:outline-none focus:border-[#ff6a00] focus:ring-0 transition-colors disabled:opacity-50"
+                className="w-full bg-transparent border-0 border-b-2 border-zinc-700 pl-8 pr-4 py-3 text-white placeholder-zinc-500 font-mono focus:outline-none focus:border-zinc-200 focus:ring-0 transition-colors disabled:opacity-50"
                 required
               />
             </div>
             <button 
               type="submit" 
               disabled={status === 'loading'}
-              className="px-8 py-3 bg-transparent border border-[#ff6a00] text-[#ff6a00] font-['Space_Grotesk'] font-bold tracking-widest uppercase transition-all hover:bg-[#ff6a00] hover:text-black hover:shadow-[0_0_30px_rgba(255,106,0,0.6)] whitespace-nowrap disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-[#ff6a00] disabled:hover:shadow-none"
+              className="px-8 py-3 bg-transparent border border-zinc-200 text-zinc-200 font-['Space_Grotesk'] font-bold tracking-widest uppercase transition-all hover:bg-zinc-200 hover:text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] whitespace-nowrap disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-zinc-200 disabled:hover:shadow-none"
             >
               {status === 'loading' ? 'CONNECTING...' : 'CONNECT'}
             </button>

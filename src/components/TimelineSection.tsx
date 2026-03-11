@@ -9,9 +9,9 @@ export default function TimelineSection() {
   });
 
   const steps = [
-    { title: "Record", desc: "You click through your task once." },
+    { title: "Record", desc: "Velix  clicks through the task once." },
     { title: "Synthesize", desc: "Velix maps the browser and writes the automation." },
-    { title: "Automate", desc: "It runs in the background. Forever." }
+    { title: "Automate", desc: "It runs in the background." }
   ];
 
   return (
@@ -22,13 +22,13 @@ export default function TimelineSection() {
 
       {/* SVG Curved Neural Pathway Track */}
       <div className="absolute left-1/2 top-[10%] bottom-[10%] -translate-x-1/2 w-24 h-[80%] z-10 pointer-events-none hidden md:block">
-        <svg fill="none" viewBox="0 0 100 1000" preserveAspectRatio="none" className="w-full h-full drop-shadow-[0_0_15px_rgba(255,106,0,0.5)]">
+        <svg fill="none" viewBox="0 0 100 1000" preserveAspectRatio="none" className="w-full h-full drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
           {/* Base faint track */}
           <path d="M50 0 C 80 250, 20 500, 50 750 C 80 900, 50 1000, 50 1000" stroke="rgba(255, 106, 0, 0.2)" strokeWidth="4" />
           {/* Animated filling track */}
           <motion.path 
             d="M50 0 C 80 250, 20 500, 50 750 C 80 900, 50 1000, 50 1000" 
-            stroke="#ff6a00" 
+            stroke="#e4e4e7" 
             strokeWidth="4"
             style={{ pathLength: scrollYProgress }}
           />
@@ -40,7 +40,7 @@ export default function TimelineSection() {
           // Calculate when each node should fill based on index (0, 1, 2)
           const startFill = idx * 0.35 + 0.1;
           const endFill = startFill + 0.1;
-          const nodeFill = useTransform(scrollYProgress, [startFill, endFill], ["rgba(0,0,0,1)", "rgba(255,106,0,1)"]);
+          const nodeFill = useTransform(scrollYProgress, [startFill, endFill], ["rgba(0,0,0,1)", "rgba(255,255,255,1)"]);
 
           return (
             <div 
@@ -62,7 +62,7 @@ export default function TimelineSection() {
                   }}
                   onMouseEnter={(e) => {
                     const target = e.currentTarget;
-                    target.style.borderColor = "#ff6a00";
+                    target.style.borderColor = "#e4e4e7";
                     target.style.boxShadow = "0 0 30px rgba(255, 106, 0, 0.3)";
                   }}
                   onMouseLeave={(e) => {
@@ -79,7 +79,7 @@ export default function TimelineSection() {
               {/* Glowing Empty Ring Node */}
               <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 items-center justify-center z-20">
                 <motion.div 
-                  className="w-8 h-8 rounded-full border-4 border-[#ff6a00] shadow-[0_0_20px_rgba(255,106,0,0.6)]"
+                  className="w-8 h-8 rounded-full border-4 border-zinc-200 shadow-[0_0_20px_rgba(255,255,255,0.6)]"
                   style={{ backgroundColor: nodeFill }}
                 />
               </div>

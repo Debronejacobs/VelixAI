@@ -6,22 +6,22 @@ export default function BentoFeatures() {
     {
       title: "Infinite Data Entry",
       desc: "Scrape, sync, and format data between any two websites. No API required.",
-      icon: <Database className="w-8 h-8 text-[#ff6a00]" />,
+      icon: <Database className="w-8 h-8 text-zinc-200" />,
     },
     {
       title: "Social Media Domination",
       desc: "It reads, it engages, it posts. Build your audience while you sleep.",
-      icon: <Share2 className="w-8 h-8 text-[#ff6a00]" />,
+      icon: <Share2 className="w-8 h-8 text-zinc-200" />,
     },
     {
       title: "Inbox Zero, Literally",
       desc: "It reads your email, drafts replies in your tone, and deletes the spam before you even wake up.",
-      icon: <Mail className="w-8 h-8 text-[#ff6a00]" />,
+      icon: <Mail className="w-8 h-8 text-zinc-200" />,
     },
     {
       title: "E-Commerce & Form Fills",
       desc: "Buy products, fill out 100-page government forms, or apply to 50 jobs.",
-      icon: <ShoppingCart className="w-8 h-8 text-[#ff6a00]" />,
+      icon: <ShoppingCart className="w-8 h-8 text-zinc-200" />,
     }
   ];
 
@@ -46,7 +46,7 @@ export default function BentoFeatures() {
               }}
               onMouseEnter={(e) => {
                 const target = e.currentTarget;
-                target.style.borderColor = "#ff6a00";
+                target.style.borderColor = "#e4e4e7";
                 target.style.boxShadow = "0 0 30px rgba(255, 106, 0, 0.3)";
               }}
               onMouseLeave={(e) => {

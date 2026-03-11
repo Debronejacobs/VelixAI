@@ -24,16 +24,22 @@ export default function Hero() {
       });
 
       if (error) {
-        // InsForgeError usually wraps the payload or status in different properties depending on version
-        const errObj = error as any;
-        const errStatus = errObj.status || errObj.context?.status;
-        const errMsg = errObj.message || errObj.context?.message || 'Rate limit reached.';
+        // The edge function returns `{"error":"This device is already registered."}`
+        // InsForge might wrap this, or throw it as a raw stringified JSON, or an object. Let's serialize it safely to check the text.
+        const errString = typeof error === 'string' ? error : JSON.stringify(error, Object.getOwnPropertyNames(error));
         
-        if (errStatus === 429 || errMsg.includes('already registered') || errMsg.includes('Too Many Requests')) {
-          setErrorMessage('This device is already registered.');
-        } else {
-          setErrorMessage(errMsg || 'Connection failed. Please try again later.');
+        // If they are already registered, just show success! No need to show a red error.
+        if (
+          errString.includes('already registered') || 
+          errString.includes('Too Many Requests') ||
+          (error as any).status === 429 ||
+          (error as any).context?.status === 429
+        ) {
+          setStatus('success');
+          setEmail('');
+          return;
         }
+        
         throw error;
       }
       

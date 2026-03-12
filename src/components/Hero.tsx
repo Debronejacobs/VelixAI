@@ -81,7 +81,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 0.6 }}
             className="mt-8 text-lg md:text-2xl text-zinc-300 font-light tracking-[0.02em] leading-relaxed max-w-lg"
           >
-            The AI agent that actually does things does work for you . 
+            The AI agent that  does   work for you . 
           </motion.p>
 
           <motion.div 

@@ -46,7 +46,7 @@ export default function Capabilities() {
               Hire your first<br />digital employee.
             </h3>
             <p className="text-zinc-400 text-lg leading-relaxed">
-              Create specialized agents for every job — social media, data entry, finance, research, and more. Each one hired for a purpose, working in the browser like a real employee.
+              Create specialized agents for every job  social media, data entry, finance, research, and more. Each one hired for a purpose, working in the browser like a real employee.
             </p>
           </motion.div>
 

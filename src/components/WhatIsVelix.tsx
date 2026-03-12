@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { MousePointer2, DatabaseZap, Sparkles } from 'lucide-react';
+import { MousePointer2, Wrench, Sparkles } from 'lucide-react';
 import React, { useRef } from 'react';
 import BrowserSimulation from './BrowserSimulation';
 
@@ -12,7 +12,7 @@ const pillars = [
   {
     title: "MCP support",
     desc: "With MCP support , Velix can control any MCP supported tool",
-    icon: <DatabaseZap className="w-8 h-8 text-zinc-200" />
+    icon: <Wrench className="w-8 h-8 text-zinc-200" />
   },
   {
     title: "Set up workflows easily",
